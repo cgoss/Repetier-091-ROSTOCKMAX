@@ -46,7 +46,7 @@ To override EEPROM settings with config settings, set EEPROM_MODE 0
 // BASIC SETTINGS: select your board type, thermistor type, axis scaling, and endstop configuration
 
 /** Number of extruders. Maximum 6 extruders. */
-#define NUM_EXTRUDER 1
+#define NUM_EXTRUDER 2
 
 //// The following define selects which electronics board you have. Please choose the one that matches your setup
 // Gen3 PLUS for RepRap Motherboard V1.2 = 21
@@ -276,10 +276,10 @@ The codes are only executed for multiple extruder when changing the extruder. */
 
 
 // =========================== Configuration for second extruder ========================
-#define EXT1_X_OFFSET 10
+#define EXT1_X_OFFSET 0 //no offset for cyclops
 #define EXT1_Y_OFFSET 0
 // for skeinforge 40 and later, steps to pull the plasic 1 mm inside the extruder, not out.  Overridden if EEPROM activated.
-#define EXT1_STEPS_PER_MM 373
+#define EXT1_STEPS_PER_MM 92.4
 // What type of sensor is used?
 // 1 is 100k thermistor (Epcos B57560G0107F000 - RepRap-Fab.org and many other)
 // 2 is 200k thermistor
@@ -314,13 +314,13 @@ The codes are only executed for multiple extruder when changing the extruder. */
 // length of filament pulled inside the heater. For repsnap or older
 // skeinforge use heigher values.
 //  Overridden if EEPROM activated.
-#define EXT1_MAX_FEEDRATE 25
+#define EXT1_MAX_FEEDRATE 100
 // Feedrate from halted extruder in mm/s
 //  Overridden if EEPROM activated.
-#define EXT1_MAX_START_FEEDRATE 12
+#define EXT1_MAX_START_FEEDRATE 45
 // Acceleration in mm/s^2
 //  Overridden if EEPROM activated.
-#define EXT1_MAX_ACCELERATION 10000
+#define EXT1_MAX_ACCELERATION 6500
 /** Type of heat manager for this extruder.
 - 0 = Simply switch on/off if temperature is reached. Works always.
 - 1 = PID Temperature control. Is better but needs good PID values. Defaults are a good start for most extruder.
@@ -328,7 +328,7 @@ The codes are only executed for multiple extruder when changing the extruder. */
 */
 #define EXT1_HEAT_MANAGER 1
 /** Wait x seconds, after reaching target temperature. Only used for M109.  Overridden if EEPROM activated. */
-#define EXT1_WATCHPERIOD 1
+#define EXT1_WATCHPERIOD 3
 
 /** \brief The maximum value, I-gain can contribute to the output.
 
@@ -753,7 +753,7 @@ on this endstop.
 
 /** \brief Printer radius in mm, measured from the center of the print area to the vertical smooth rod.
 */
-#define PRINTER_RADIUS 200.0  //  198.25 for older v1 machines.  
+#define PRINTER_RADIUS 200.0  //  198.25 for older v1 machines.
 
 /**  \brief Horizontal distance bridged by the diagonal push rod when the end effector is in the center. It is pretty close to 50% of the push rod length (250 mm).
 */
@@ -861,7 +861,7 @@ If the interval at full speed is below this value, smoothing is disabled for tha
 /** \brief X, Y, Z max acceleration in mm/s^2 for printing moves or retracts. Make sure your printer can go that high!
  Overridden if EEPROM activated.
 */
-#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_X 1850  
+#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_X 1850
 #define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Y 1850
 #define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Z 1850
 
@@ -893,7 +893,7 @@ Corner can be printed with full speed of 50 mm/s
 
 Overridden if EEPROM activated.
 */
-#define MAX_JERK 35.0    
+#define MAX_JERK 35.0
 #define MAX_ZJERK 35.0
 
 /** \brief Number of moves we can cache in advance.
@@ -1228,7 +1228,7 @@ Values must be in range 1..255
 // Values used for preheat
 #define UI_SET_PRESET_HEATED_BED_TEMP_PLA 60
 #define UI_SET_PRESET_EXTRUDER_TEMP_PLA   180
-#define UI_SET_PRESET_HEATED_BED_TEMP_ABS 90  
+#define UI_SET_PRESET_HEATED_BED_TEMP_ABS 90
 #define UI_SET_PRESET_EXTRUDER_TEMP_ABS   200
 // Extreme values
 #define UI_SET_MIN_HEATED_BED_TEMP  40
@@ -1239,4 +1239,3 @@ Values must be in range 1..255
 #define UI_SET_EXTRUDER_RETRACT_DISTANCE 3 // mm
 
 #endif
-

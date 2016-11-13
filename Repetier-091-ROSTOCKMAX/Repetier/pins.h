@@ -1494,11 +1494,11 @@ STEPPER_CURRENT_CONTROL
 #define E0_MS1_PIN     65
 #define E0_MS2_PIN     66
 
-#define E1_STEP_PIN    33//57
+#define E1_STEP_PIN    33
 #define E1_DIR_PIN     42
 #define E1_ENABLE_PIN  25
-#define E1_MS1_PIN     63 //88
-#define E1_MS2_PIN     64 //87
+#define E1_MS1_PIN     63
+#define E1_MS2_PIN     64
 
 
 #define DIGIPOTSS_PIN  38
